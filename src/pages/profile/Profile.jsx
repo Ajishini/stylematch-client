@@ -15,12 +15,12 @@ const Profile = ({ onLogin, onLogout }) => {
     // console.log(userData);
     // console.log(mode);
     try{
-      if(mode == "signup") {
+      if(mode === "signup") {
         await createUser(userData);
         navigate('/');
       }
 
-      if(mode == "login") {
+      if(mode === "login") {
         await loginUser(userData);
         navigate("/");
       }

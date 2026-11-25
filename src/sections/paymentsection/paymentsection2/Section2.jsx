@@ -9,7 +9,7 @@ const Section2 = () => {
     const { order_id } = useParams();
 
     const [cartItems, setCartItems] = useState([]);
-    const [checkoutData, setCheckoutData] = useState(null);
+    const [checkoutData] = useState(null);
     const [paymentMethod, setPaymentMethod] = useState("upi");
 
     const [paymentData, setPaymentData] = useState({
@@ -89,49 +89,49 @@ const Section2 = () => {
         }));
     };
 
-    const validatePayment = () => {
-        if (paymentMethod === "upi") {
-            if (!paymentData.upiId.trim()) {
-                alert("Please enter your UPI ID.");
-                return false;
-            }
-        }
+    // const validatePayment = () => {
+    //     if (paymentMethod === "upi") {
+    //         if (!paymentData.upiId.trim()) {
+    //             alert("Please enter your UPI ID.");
+    //             return false;
+    //         }
+    //     }
 
-        if (paymentMethod === "card") {
-            if (
-                !paymentData.cardNumber.trim() ||
-                !paymentData.cardName.trim() ||
-                !paymentData.expiry.trim() ||
-                !paymentData.cvv.trim()
-            ) {
-                alert("Please fill in all card details.");
-                return false;
-            }
+    //     if (paymentMethod === "card") {
+    //         if (
+    //             !paymentData.cardNumber.trim() ||
+    //             !paymentData.cardName.trim() ||
+    //             !paymentData.expiry.trim() ||
+    //             !paymentData.cvv.trim()
+    //         ) {
+    //             alert("Please fill in all card details.");
+    //             return false;
+    //         }
 
-            if (
-                paymentData.cardNumber
-                    .replace(/\s/g, "")
-                    .length < 12
-            ) {
-                alert("Please enter a valid card number.");
-                return false;
-            }
+    //         if (
+    //             paymentData.cardNumber
+    //                 .replace(/\s/g, "")
+    //                 .length < 12
+    //         ) {
+    //             alert("Please enter a valid card number.");
+    //             return false;
+    //         }
 
-            if (paymentData.cvv.length < 3) {
-                alert("Please enter a valid CVV.");
-                return false;
-            }
-        }
+    //         if (paymentData.cvv.length < 3) {
+    //             alert("Please enter a valid CVV.");
+    //             return false;
+    //         }
+    //     }
 
-        if (paymentMethod === "netbanking") {
-            if (!paymentData.bank) {
-                alert("Please select your bank.");
-                return false;
-            }
-        }
+    //     if (paymentMethod === "netbanking") {
+    //         if (!paymentData.bank) {
+    //             alert("Please select your bank.");
+    //             return false;
+    //         }
+    //     }
 
-        return true;
-    };
+    //     return true;
+    // };
 
     const handlePlaceOrder = async (event) => {
         event.preventDefault();

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UserRound, MapPin, Phone, Mail, ShieldCheck, ArrowRight, ArrowLeft } from "lucide-react";
 import "./Section2.css";
 
-import { getCart, createOrder, updatePaymentStatus } from "../../../api/apiService";
+import { getCart, createOrder} from "../../../api/apiService";
 
 const Section2 = () => {
 
@@ -21,7 +21,7 @@ const Section2 = () => {
         pincode: ""
     });
 
-    const [deliveryMethod, setDeliveryMethod] = useState("standard");
+    const [deliveryMethod] = useState("standard");
 
     useEffect(() => {
         const fetchCart = async () => {
